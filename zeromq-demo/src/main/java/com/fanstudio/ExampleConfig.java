@@ -15,4 +15,7 @@ public class ExampleConfig {
 
     public static final String TCP_PUSH_SERVER = "tcp://localhost:7678";
     public static final String PUSH_FLAG = "[PUSH_FLAG]";
+
+    public static final String TCP_PULL_SERVER = "tcp://localhost:8678";
+    public static final String PULL_FLAG = "[]PULL_FLAG";
 }
