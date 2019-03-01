@@ -18,6 +18,6 @@ public class DeviceServiceImpl implements DeviceService {
 
     @Override
     public Device selectByPrimaryKey(Integer id) {
-        return deviceMapper.selectByPrimaryKey(1);
+        return deviceMapper.selectByPrimaryKey(id);
     }
 }

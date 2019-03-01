@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.rog//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.fanstudio.mybatisdemo.mapper">
+<mapper namespace="com.fanstudio.mybatisdemo.mapper.DeviceMapper">
     <resultMap id="device" type="Device">
         <id property="id" column="id" />
         <result property="serviceName" column="service_name" />
@@ -13,6 +13,7 @@
     </resultMap>
 
     <select id="selectByPrimaryKey" parameterType="int" resultMap="device">
-        SELECT `id`,`service_name`,`description`,`ip_address`,`port_type`,`port` FROM `t_device` WHERE `id`=#{id}
+        SELECT `id`, `service_name`, `description`, `ip_address`, `port_type`, `port` FROM tb_device WHERE `id`=#{id}
     </select>
+
 </mapper>
