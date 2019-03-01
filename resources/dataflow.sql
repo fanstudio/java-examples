@@ -34,8 +34,8 @@ CREATE TABLE `tb_device`  (
 -- ----------------------------
 -- Records of tb_device
 -- ----------------------------
-INSERT INTO `tb_device` VALUES (1, 'sitelite-productor', '卫星数据', '192.168.1.11', 0, 8201);
-INSERT INTO `tb_device` VALUES (2, 'leida', '雷达', '192.168.1.12', 0, 8201);
-INSERT INTO `tb_device` VALUES (3, 'leida', '雷达', '192.168.1.12', 0, 8201);
+INSERT INTO `tb_device` VALUES (1, 'TEST-productor', 'XX1数据', '192.168.1.11', 0, 8201);
+INSERT INTO `tb_device` VALUES (2, 'TEST2', 'XX2', '192.168.1.12', 0, 8201);
+INSERT INTO `tb_device` VALUES (3, 'TEST3', 'XX3', '192.168.1.12', 0, 8201);
 
 SET FOREIGN_KEY_CHECKS = 1;
