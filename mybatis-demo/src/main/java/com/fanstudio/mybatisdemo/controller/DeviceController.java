@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * @author Admin
  * @date 2019/2/28
@@ -21,9 +23,18 @@ public class DeviceController {
     private DeviceService deviceService;
 
     @RequestMapping("/device/{id}")
-    Device device(@PathVariable Integer id) {
-        log.debug("input id:" + id);
-        return  deviceService.selectByPrimaryKey(id);
+    Device getDeviceById(@PathVariable Integer id) {
+        return deviceService.selectByPrimaryKey(id);
+    }
+
+    @RequestMapping("/device")
+    List<Device> selectAllDevice() {
+        return deviceService.selectAll();
+    }
+
+    @RequestMapping("/addDevice")
+    void insertDevice(Device device) {
+        deviceService.insert(device);
     }
 
 }
