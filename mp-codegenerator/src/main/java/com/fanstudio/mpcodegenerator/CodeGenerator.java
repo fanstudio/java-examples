@@ -15,6 +15,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CodeGenerator {
+    private static final String URL = "jdbc:mysql://localhost:3306/dataflow?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
+    private static final String DRIVER_NAME = "com.mysql.jdbc.Driver";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "123456";
+    private static final String BASE_PACKAGE_NAME = "itc.common";
+    private static final String AUTHOR = "zhangfan";
+    private static final String TABLE_PREFIX = "tb_";
 
     public static String scanner(String tip) {
         Scanner scanner = new Scanner(System.in);
@@ -38,23 +45,23 @@ public class CodeGenerator {
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath + "/src/main/java");
-        gc.setAuthor("jobob");
+        gc.setAuthor(AUTHOR);
         gc.setOpen(false);
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/dataflow?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC");
+        dsc.setUrl(URL);
         // dsc.setSchemaName("public");
-        dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUsername("root");
-        dsc.setPassword("123456");
+        dsc.setDriverName(DRIVER_NAME);
+        dsc.setUsername(USERNAME);
+        dsc.setPassword(PASSWORD);
         mpg.setDataSource(dsc);
 
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.baomidou.ant");
+        pc.setParent(BASE_PACKAGE_NAME);
         mpg.setPackageInfo(pc);
 
         // 自定义配置
@@ -101,14 +108,15 @@ public class CodeGenerator {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setSuperEntityClass("com.baomidou.ant.common.BaseEntity");
+        //strategy.setSuperEntityClass("com.baomidou.ant.common.BaseEntity");
         strategy.setEntityLombokModel(true);
         strategy.setRestControllerStyle(true);
-        strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");
+        //strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");
         strategy.setInclude(scanner("表名"));
-        strategy.setSuperEntityColumns("id");
+        //strategy.setSuperEntityColumns("id");
         strategy.setControllerMappingHyphenStyle(true);
-        strategy.setTablePrefix(pc.getModuleName() + "_");
+        // 设置表名前缀
+        strategy.setTablePrefix(TABLE_PREFIX);
         mpg.setStrategy(strategy);
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();
