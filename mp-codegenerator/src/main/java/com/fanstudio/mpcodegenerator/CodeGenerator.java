@@ -19,9 +19,18 @@ public class CodeGenerator {
     private static final String DRIVER_NAME = "com.mysql.jdbc.Driver";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "123456";
+    /**
+     * 包名
+     */
     private static final String BASE_PACKAGE_NAME = "itc.common";
+    /**
+     * 作者
+     */
     private static final String AUTHOR = "zhangfan";
-    private static final String TABLE_PREFIX = "tb_";
+    /**
+     * 表前缀
+     */
+    private static final String TABLE_PREFIX = "t_";
 
     public static String scanner(String tip) {
         Scanner scanner = new Scanner(System.in);
