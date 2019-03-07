@@ -14,9 +14,9 @@ public class SubClient {
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket socket = context.socket(ZMQ.SUB);
         // 建立连接
-        socket.connect(ExampleConfig.TCP_PUBLISH__SERVER);
+        socket.connect(ExampleConfig.TCP_PUBLISH_SERVER);
         // 设置订阅
-        socket.subscribe(ExampleConfig.TOPIC_NAME);
+        socket.subscribe(ExampleConfig.TOPIC_NAME1);
 
         // 模拟订阅测试
         System.out.println("Start test.");

@@ -6,8 +6,9 @@ package com.fanstudio;
  * @description
  */
 public class ExampleConfig {
-    public static final String TCP_PUBLISH__SERVER = "tcp://localhost:5678";
-    public static final String TOPIC_NAME = "[TEST_TOPIC_HEAD]";
+    public static final String TCP_PUBLISH_SERVER = "tcp://localhost:5678";
+    public static final String TOPIC_NAME1 = "[TEST_TOPIC_HEAD1]";
+    public static final String TOPIC_NAME2 = "[TEST_TOPIC_HEAD2]";
 
     public static final String TCP_RESPONSE_SERVER = "tcp://localhost:6678";
     public static final String REQUEST_PREFIX = "[REQ]";
@@ -17,5 +18,5 @@ public class ExampleConfig {
     public static final String PUSH_FLAG = "[PUSH_FLAG]";
 
     public static final String TCP_PULL_SERVER = "tcp://localhost:8678";
-    public static final String PULL_FLAG = "[]PULL_FLAG";
+    public static final String PULL_FLAG = "[PULL_FLAG]";
 }
