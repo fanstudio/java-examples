@@ -1,7 +1,9 @@
 package com.fanstudio.springboot.controller;
 
+import com.fanstudio.springboot.entity.Person;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,11 +22,16 @@ import java.util.Map;
 public class DefaultController {
 
     @RequestMapping("info")
-    Map<String,String> info() throws SQLException {
+    public Map<String,String> info() throws SQLException {
         Map<String,String> map = new HashMap<>();
         map.put("version", "v.0.0.1");
         log.debug("enter info");
         return map;
+    }
+
+    @GetMapping("person")
+    public Person getPerson() {
+        return new Person();
     }
 
 
