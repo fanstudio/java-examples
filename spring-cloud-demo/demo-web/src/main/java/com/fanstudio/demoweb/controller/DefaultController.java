@@ -18,6 +18,9 @@ public class DefaultController {
     @Autowired
     private DiscoveryClient discoveryClient;
 
+    @Autowired
+    private RestTemplate restTemplate;
+
     @GetMapping("/serviceVersion")
     public Map<String, String> showServiceInfo() {
         log.debug("enter showServiceInfo");
@@ -29,6 +32,17 @@ public class DefaultController {
         // 拼接地址，并请求
         String url = "http://" + host + ":" + port + "/version";
         RestTemplate restTemplate = new RestTemplate();
+        Map map = restTemplate.getForObject(url, Map.class);
+
+        return map;
+    }
+
+
+    @GetMapping("/autoShowServiceInfo")
+    public Map<String, String> autoShowServiceInfo() {
+        log.debug("enter autoShowServiceInfo");
+        // 请求地址不用使用ip端口直接写服务名称
+        String url = "http://demo-service/version";
         Map map = restTemplate.getForObject(url, Map.class);
 
         return map;
