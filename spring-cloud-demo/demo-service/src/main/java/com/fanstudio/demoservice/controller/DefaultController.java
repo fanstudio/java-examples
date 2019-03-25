@@ -14,7 +14,12 @@ public class DefaultController {
 
     @GetMapping("/version")
     public Map<String, String> showServerInfo() {
-        Map<String, String> map = new HashMap<>();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Map<String, String> map = new HashMap();
         map.put("serviceVersion", "v0.0.1");
         return map;
     }
