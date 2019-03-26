@@ -14,6 +14,7 @@ public class DefaultController {
 
     @GetMapping("/version")
     public Map<String, String> showServerInfo() {
+        log.debug("enter showServerInfo");
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
